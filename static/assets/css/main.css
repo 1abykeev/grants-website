@@ -523,6 +523,7 @@ h6 {
 
 .footer .footer-top {
   padding-top: 50px;
+  text-align: center;
 }
 
 .footer .social-links a {
@@ -550,6 +551,12 @@ h6 {
   position: relative;
   padding-bottom: 12px;
 }
+
+
+
+
+
+
 
 .footer .footer-links {
   margin-bottom: 30px;
@@ -587,6 +594,12 @@ h6 {
 .footer .footer-links ul a:hover {
   color: var(--accent-color);
 }
+
+
+
+
+
+
 
 .footer .footer-about a {
   color: var(--heading-color);
