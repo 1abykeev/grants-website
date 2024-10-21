@@ -188,16 +188,7 @@ h6 {
   text-decoration: underline;
 }
 
-.header .topbar .social-links a {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  line-height: 0;
-  transition: 0.3s;
-  margin-left: 20px;
-}
 
-.header .topbar .social-links a:hover {
-  color: var(--accent-color);
-}
 
 .header .branding {
   padding: 10px 0;
@@ -526,6 +517,35 @@ h6 {
   text-align: center;
 }
 
+
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+
+.header .topbar .social-links a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  line-height: 0;
+  transition: 0.3s;
+  margin-left: 20px;
+}
+
+.header .topbar .social-links a:hover {
+  color: var(--accent-color);
+}
+
+.footer .social-links {
+  display: flex;                   /* Ensure flexbox layout */
+  justify-content: center;         /* Center items horizontally */
+  align-items: center;             /* Center items vertically */
+  flex-wrap: wrap;                 /* Allow wrapping if needed */
+  margin-top: 10px;               /* Optional: space above the social links */
+}
+
 .footer .social-links a {
   display: flex;
   align-items: center;
@@ -536,7 +556,7 @@ h6 {
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-right: 10px;
+  margin: 0 10px;                 /* Adjust margin to be left and right */
   transition: 0.3s;
 }
 
@@ -545,21 +565,21 @@ h6 {
   border-color: var(--accent-color);
 }
 
-.footer h4 {
-  font-size: 16px;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
+.blog-author .social-links {
+  margin: 0 10px 10px 0;
 }
 
-
-
+.blog-author .social-links a {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  margin-right: 5px;
+}
 
 
 
 
 .footer .footer-links {
   margin-bottom: 30px;
+  text-align: center; /* Center the text inside this section */
 }
 
 .footer .footer-links ul {
@@ -579,6 +599,7 @@ h6 {
   padding: 10px 0;
   display: flex;
   align-items: center;
+  justify-content: center; /* Center the list items */
 }
 
 .footer .footer-links ul li:first-child {
@@ -595,6 +616,29 @@ h6 {
   color: var(--accent-color);
 }
 
+
+
+
+
+
+.footer .social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .social-links ul i {
+  margin-right: 3px;
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .social-links ul li {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the list items */
+}
 
 
 
@@ -2129,14 +2173,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
 
-.blog-author .social-links {
-  margin: 0 10px 10px 0;
-}
 
-.blog-author .social-links a {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  margin-right: 5px;
-}
 
 .blog-author p {
   font-style: italic;
