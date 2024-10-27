@@ -1,0 +1,81 @@
+{% include "header.html" %}
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="register.html">Home</a></li>
+          <li class="current">Register</li>
+        </ol>
+      </nav>
+      <h1>Register</h1>
+    </div>
+  </div><!-- End Page Title -->
+
+  <!-- Registration Section -->
+  <section id="register" class="register section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row gy-4">
+        <div class="col-lg-6">
+          <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-person-plus"></i>
+            <h3>Create Your Account</h3>
+            <p>Fill in the details below to register.</p>
+          </div>
+        </div><!-- End Info Item -->
+
+          <div class="col-lg-6">
+            <form action="{{ url_for('register') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+
+          
+              <div class="row gy-4">
+          
+                <div class="col-md-12">
+                  {{ form.name.label(class="form-label") }}
+                  {{ form.name(class="form-control", placeholder="Your Name") }}
+                </div>
+          
+                <div class="col-md-12">
+                  {{ form.email.label(class="form-label") }}
+                  {{ form.email(class="form-control", placeholder="Your Email") }}
+                </div>
+          
+                <div class="col-md-12">
+                  {{ form.password.label(class="form-label") }}
+                  {{ form.password(class="form-control", placeholder="Password") }}
+                </div>
+          
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+          
+                  {{ form.submit(class="btn btn-primary") }} <!-- Render the submit button -->
+                </div>
+          
+              </div>
+            </form>
+          </div><!-- End Registration Form -->
+          
+
+
+          <div class="text-center mt-3">
+            <p>Already have an account? <a href="{{ url_for('login') }}" class="login-link">Login here</a></p>
+          </div>
+        </div><!-- End Registration Form -->
+
+      </div>
+
+    </div>
+
+  </section><!-- /Registration Section -->
+
+</main>
+
+{% include "footer.html" %}
+
