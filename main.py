@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request  
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
@@ -7,8 +7,10 @@ from flask_login import UserMixin
 from forms import RegisterForm
 from werkzeug.security import generate_password_hash
 import secrets
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+Bootstrap(app)
 class Base(DeclarativeBase):
     pass
 
@@ -48,8 +50,6 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for("login"))
-    else:
-        print(form.errors)  # Print any validation errors
     return render_template("register.html", form=form)
 
 
