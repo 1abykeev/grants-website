@@ -1,16 +1,16 @@
 
-from flask import Flask, render_template, url_for, redirect, request  
+from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
 from flask_login import UserMixin
-from forms import RegisterForm
-from werkzeug.security import generate_password_hash
+from forms import RegisterForm, LoginForm
+from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
-from flask_bootstrap import Bootstrap
+from flask_login import LoginManager, login_user
+
 
 app = Flask(__name__)
-Bootstrap(app)
 class Base(DeclarativeBase):
     pass
 
@@ -31,6 +31,13 @@ class User(UserMixin, db.Model):
 with app.app_context():
     db.create_all()
 
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return db.get_or_404(User, user_id)
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -53,6 +60,22 @@ def register():
     return render_template("register.html", form=form)
 
 
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+        result = db.session.execute(db.select(User).where(User.email == email))
+        # Note, email in db is unique so will only have one result.
+        user = result.scalar()
+
+        if user and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('pricing'))
+
+    return render_template("login.html", form=form)
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -73,9 +96,7 @@ def contact():
 def pricing():
     return render_template("pricing.html")
 
-@app.route('/login')
-def login():
-    return render_template("login.html")
+
 
 
 

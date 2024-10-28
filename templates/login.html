@@ -1,6 +1,68 @@
-
 {% include "header.html" %}
 
-<h1> Welcome to Log In </h1>
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="login.html">Home</a></li>
+          <li class="current">Login</li>
+        </ol>
+      </nav>
+      <h1>Login</h1>
+    </div>
+  </div><!-- End Page Title -->
+
+  <section id="login" class="login section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-6">
+          <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <h3>Welcome Back!</h3>
+            <p>Enter your details below to log in.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <form action="{{ url_for('login') }}" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+              {{ form.email.label }}<br>
+              {{ form.email(class="form-control") }}
+              {% if form.email.errors %}
+                <span style="color: red;">{{ form.email.errors[0] }}</span>
+              {% endif %}
+            </p>
+            <p>
+              {{ form.password.label }}<br>
+              {{ form.password(class="form-control") }}
+              {% if form.password.errors %}
+                <span style="color: red;">{{ form.password.errors[0] }}</span>
+              {% endif %}
+            </p>
+            <p>
+              {{ form.course_code.label }}<br>
+              {{ form.course_code(class="form-control") }}
+              {% if form.course_code.errors %}
+                <span style="color: red;">{{ form.course_code.errors[0] }}</span>
+              {% endif %}
+            </p>
+            <!-- Spacing for the submit button -->
+            <div class="mt-4">
+              {{ form.submit(class="btn btn-primary") }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <p>Don’t have an account? <a href="{{ url_for('register') }}" class="register-link">Register here</a></p>
+    </div>
+  </section>
+
+</main>
 
 {% include "footer.html" %}
