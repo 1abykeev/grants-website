@@ -72,6 +72,10 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
+            if form.course_code.data == 240190:
+                return redirect(url_for('turkiye'))
+            elif form.course_code.data == 240236:
+                return redirect(url_for('hungary'))
             return redirect(url_for('pricing'))
 
     return render_template("login.html", form=form)
@@ -96,8 +100,13 @@ def contact():
 def pricing():
     return render_template("pricing.html")
 
+@app.route('/course/turkiye')
+def turkiye():
+    return render_template("turkiye.html")
 
-
+@app.route('/course/hungary')
+def hungary():
+    return render_template("hungary.html")
 
 
 if __name__ == "__main__":
