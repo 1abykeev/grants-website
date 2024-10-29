@@ -45,21 +45,20 @@
         <div class="col-lg-6">
           <form action="{{ url_for('login') }}" method="post">
 
-  <!-- Adding Flash message here for users trying to register twice -->
-<!-- Flash Message Section -->
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <style>
-      .flash-error {
-        color: red;
-        font-weight: normal;
-      }
-    </style>
-    {% for message in messages %}
-      <p class="flash-error">{{ message }}</p>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
+            <!-- Adding Flash message here for users trying to register twice -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <style>
+                  .flash-error {
+                    color: red;
+                    font-weight: normal;
+                  }
+                </style>
+                {% for message in messages %}
+                  <p class="flash-error">{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
 
 
             {{ form.hidden_tag() }}

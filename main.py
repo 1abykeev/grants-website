@@ -83,6 +83,15 @@ def login():
         # Note, email in db is unique so will only have one result.
         user = result.scalar()
 
+        # Email doesn't exist
+        if not user:
+            flash("That email does not exist, please try again.")
+            return redirect(url_for('login'))
+        # Password incorrect
+        elif not check_password_hash(user.password, password):
+            flash('Password incorrect, please try again.')
+            return redirect(url_for('login'))
+
         if user and check_password_hash(user.password, password):
             login_user(user)
             if form.course_code.data == 240190:
