@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
@@ -44,6 +44,15 @@ def load_user(user_id):
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
+
+        # Check if user email is already present in the database.
+        result = db.session.execute(db.select(User).where(User.email == form.email.data))
+        user = result.scalar()
+        if user:
+            # User already exists
+            flash("You've already signed up with that email, log in instead!")
+            return redirect(url_for('login'))
+        
         hash_and_salted_password = generate_password_hash(
             form.password.data,
             method='pbkdf2:sha256',
@@ -56,6 +65,10 @@ def register():
         )
         db.session.add(new_user)
         db.session.commit()
+
+        #This line will authenticate the user with Flask-Login
+        login_user(new_user)
+
         return redirect(url_for("login"))
     return render_template("register.html", form=form)
 
@@ -76,7 +89,12 @@ def login():
                 return redirect(url_for('turkiye'))
             elif form.course_code.data == 240236:
                 return redirect(url_for('hungary'))
-            return redirect(url_for('pricing'))
+            elif form.course_code.data == 250303:
+                return redirect(url_for('dashboard'))
+            else:
+                # Set an error message for invalid course code
+                form.course_code.errors.append("Invalid course code. Please enter a valid course code.")
+            #return redirect(url_for('pricing'))
 
     return render_template("login.html", form=form)
 
@@ -108,6 +126,9 @@ def turkiye():
 def hungary():
     return render_template("hungary.html")
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template("dashboard.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
