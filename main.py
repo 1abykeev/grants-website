@@ -7,7 +7,7 @@ from flask_login import UserMixin
 from forms import RegisterForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, current_user, logout_user
 
 
 app = Flask(__name__)
@@ -95,7 +95,7 @@ def login():
         if user and check_password_hash(user.password, password):
             login_user(user)
             if form.course_code.data == 240190:
-                return redirect(url_for('turkiye'))
+                return redirect(url_for('turkiye' ))
             elif form.course_code.data == 240236:
                 return redirect(url_for('hungary'))
             elif form.course_code.data == 250303:
@@ -106,6 +106,11 @@ def login():
             #return redirect(url_for('pricing'))
 
     return render_template("login.html", form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user() 
+    return redirect(url_for('index'))
 
 @app.route('/')
 def index():

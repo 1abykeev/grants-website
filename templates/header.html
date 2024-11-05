@@ -64,8 +64,13 @@
             <li><a href="{{ url_for('about')}}">About</a></li>
             <li><a href="{{ url_for('pricing')}}">Pricing</a></li>
             <li><a href="{{ url_for('contact')}}">Contact</a></li>
-            <li><a href="{{ url_for('login')}}">Login</a></li>
+            <!-- Only show Login/Register if user is logged out. Otherwise show "Log Out" -->
+            {% if not current_user.is_authenticated: %}
+            <li><a href="{{ url_for('login')}}">Log In</a></li>
             <li><a href="{{ url_for('register')}}">Register</a></li>
+            {% else: %}
+            <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+            {% endif %}
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
