@@ -14,6 +14,27 @@
 
 /* ------------------------------------ OWN ------------------------------------------------------------------------  */
 
+.vertical-line {
+  position: absolute;
+  top: 35%;                    /* Adjust this value to move closer to the text */
+  height: 40%;                 /* Length of the vertical line */
+  width: 4px;                  /* Width of the line */
+  background-color: #000;      /* Color of the line */
+}
+
+.left-line {
+  left: 40px;                  /* Position from the left */
+}
+
+.right-line {
+  right: 40px;                 /* Position from the right */
+}
+
+@media (max-width: 768px) { /* Adjust the max-width as needed for your design */
+  .vertical-line {
+    display: none;
+  }
+}
 
 
 
@@ -224,8 +245,9 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-left: 8px solid var(--accent-color);
+  /* border-left: 8px solid var(--accent-color); */ /* Commenting out this line */
 }
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
