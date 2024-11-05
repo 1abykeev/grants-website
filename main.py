@@ -8,6 +8,8 @@ from forms import RegisterForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
 from flask_login import LoginManager, login_user, current_user, logout_user
+from functools import wraps
+from flask import abort
 
 
 app = Flask(__name__)
@@ -38,6 +40,18 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return db.get_or_404(User, user_id)
+
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Check if user is authenticated
+        if not current_user.is_authenticated:
+            flash("You need to be logged in to access this course.")
+            return abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -94,11 +108,11 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            if form.course_code.data == 240190:
+            if form.course_code.data == "240190":
                 return redirect(url_for('turkiye' ))
-            elif form.course_code.data == 240236:
+            elif form.course_code.data == "240236":
                 return redirect(url_for('hungary'))
-            elif form.course_code.data == 250303:
+            elif form.course_code.data == "250303":
                 return redirect(url_for('dashboard'))
             else:
                 # Set an error message for invalid course code
@@ -133,14 +147,17 @@ def pricing():
     return render_template("pricing.html")
 
 @app.route('/course/turkiye')
+@login_required
 def turkiye():
     return render_template("turkiye.html")
 
 @app.route('/course/hungary')
+@login_required
 def hungary():
     return render_template("hungary.html")
 
 @app.route('/dashboard')
+@login_required
 def dashboard():
     return render_template("dashboard.html")
 
