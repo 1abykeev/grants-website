@@ -1,0 +1,231 @@
+{% include "header.html" %}
+
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+  </div><!-- End Page Title -->
+
+  <!-- Dynamic Course Content -->
+  <section id="course-content" class="section course-content">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-12 content">
+          <h1> Turkiye Burslari </h1>
+
+          <h3>Course Overview</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+            Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+            ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+            Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+          </p>
+
+          <!-- Dynamic Pros and Cons - Carousel -->
+          <h3>Pros:</h3>
+          <div id="pros-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <div class="carousel-container">
+                  <img src="static/assets/img/about.jpg" alt="Pro 1" class="carousel-img">
+                  <h4>Pro 1</h4>
+                  <p>Pro description 1</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="carousel-container">
+                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 2" class="carousel-img">
+                  <h4>Pro 2</h4>
+                  <p>Pro description 2</p>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <div class="carousel-container">
+                  <img src="static/assets/img/about.jpg" alt="Pro 3" class="carousel-img">
+                  <h4>Pro 3</h4>
+                  <p>Pro description 3</p>
+                </div>
+              </div>
+              <!-- Slide 4 -->
+              <div class="carousel-item">
+                <div class="carousel-container">
+                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 4" class="carousel-img">
+                  <h4>Pro 4</h4>
+                  <p>Pro description 4</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#pros-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span></button>
+            <button class="carousel-control-next custom-next" type="button" data-bs-target="#pros-carousel" data-bs-slide="next"><span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span></button>
+          </div>
+          <!-- End Dynamic Pros and Cons Carousel -->
+
+          <!-- Dynamic FAQ -->
+          <h3>Frequently Asked Questions:</h3>
+          <ul>
+            <li><strong></strong></li>
+          </ul>
+
+          <!-- Static Help Section -->
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Dynamic Course Section -->
+</main>
+
+{% include "footer.html" %}
+
+<!-- Embedded CSS -->
+<style>
+  /* Page Title */
+  .page-title {
+    background-image: url('static/assets/img/cappadocia.jpg');
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #fff;
+    text-align: center;
+    padding: 120px 0;
+    margin-top: 30px;
+  }
+
+  .content h1 {
+    font-size: 36px;
+    font-weight: 600;
+  }
+
+  /* Course Content Section */
+  #course-content {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+  }
+
+  #course-content .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .course-content h3 {
+    font-size: 28px;
+    color: #ff6f00; /* Orange color matching your theme */
+    font-weight: 600;
+  }
+
+  .course-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .course-content ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .course-content ul li {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+
+  .course-content ul li i {
+    color: #ff6f00;
+    margin-right: 10px;
+  }
+
+  .course-content ul li span {
+    font-weight: 500;
+  }
+
+  .course-content h3 + p {
+    font-size: 18px;
+    color: #555;
+  }
+
+  .course-content ul li .bi {
+    font-size: 20px;
+  }
+
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .course-content h3 {
+      font-size: 24px;
+    }
+
+    .course-content p {
+      font-size: 14px;
+    }
+  }
+
+  /* Ensure carousel container is positioned correctly */
+  .carousel-container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Make carousel images smaller */
+  .carousel-img {
+    width: 50%; /* Make images smaller */
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  /* Styling for carousel description */
+  .carousel-container h4 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+
+  .carousel-container p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .carousel-inner {
+    overflow: hidden;  /* Prevent overflow of carousel content */
+  }
+
+  /* Simplified buttons */
+  .carousel-control-prev.custom-prev {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    left: 10px; /* Move to the left side */
+    background: none;
+    color: #000;
+    border: none;
+    font-size: 30px; /* Larger font for the arrow */
+  }
+
+  .carousel-control-next.custom-next {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    right: 10px; /* Move to the right side */
+    background: none;
+    color: #000;
+    border: none;
+    font-size: 30px; /* Larger font for the arrow */
+  }
+
+  /* Adjust the appearance of the buttons */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    color: #ff6f00; /* Change color on hover */
+  }
+
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .carousel-img {
+      width: 80%; /* Make image bigger on mobile */
+    }
+  }
+</style>

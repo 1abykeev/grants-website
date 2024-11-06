@@ -30,6 +30,9 @@ class User(UserMixin, db.Model):
     password: Mapped[str] = mapped_column(String(100))
     name: Mapped[str] = mapped_column(String(100))
 
+    
+
+
 with app.app_context():
     db.create_all()
 
@@ -160,6 +163,10 @@ def hungary():
 @login_required
 def dashboard():
     return render_template("dashboard.html")
+
+@app.route('/turkiye-desc')
+def turkiye_desc():
+    return render_template("turkiye_desc.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
