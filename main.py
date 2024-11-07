@@ -168,5 +168,9 @@ def dashboard():
 def turkiye_desc():
     return render_template("turkiye_desc.html")
 
+@app.route('/poland-desc')
+def poland_desc():
+    return render_template("poland_desc.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
