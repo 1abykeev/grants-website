@@ -81,6 +81,63 @@
           </div>
           <!-- End Dynamic Pros and Cons Carousel -->
 
+
+  <!-- Services Section -->
+  <section id="services-section" class="services-section">
+
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row service-items">
+
+        <!-- Service 1: Direct Application to Turkey -->
+        <div class="col-lg-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="bi bi-clipboard-check"></i>
+            </div>
+            <h3 class="service-title">Direct Application to Turkey</h3>
+            <p class="service-description">
+              Apply directly to universities in Turkey with our streamlined process. We provide expert guidance for a smooth and fast application experience.
+            </p>
+            <a href="/pricing" class="service-btn">Learn More</a>
+          </div>
+        </div><!-- End Service Item -->
+
+        <!-- Service 2: Scholarship Application for Turkey -->
+        <div class="col-lg-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="bi bi-award"></i>
+            </div>
+            <h3 class="service-title">Scholarship Application for Turkey</h3>
+            <p class="service-description">
+              Discover scholarship opportunities for international students in Turkey. We help you apply for the best scholarships to fund your studies.
+            </p>
+            <a href="/pricing" class="service-btn">Learn More</a>
+          </div>
+        </div><!-- End Service Item -->
+
+        <!-- Service 3: Scholarship + Direct Application -->
+        <div class="col-lg-4">
+          <div class="service-box">
+            <div class="service-icon">
+              <i class="bi bi-rocket"></i>
+            </div>
+            <h3 class="service-title">Scholarship + Direct Application</h3>
+            <p class="service-description">
+              Combine both scholarship and direct university application services for a comprehensive support system. We guide you through both processes.
+            </p>
+            <a href="/pricing" class="service-btn">Learn More</a>
+          </div>
+        </div><!-- End Service Item -->
+
+      </div>
+    </div>
+
+  </section><!-- End Services Section -->
+
+
+
+        <div>
           <!-- Dynamic FAQ -->
           <h3>Frequently Asked Questions</h3>
           <div class="faq-item">
@@ -106,9 +163,7 @@
 
 
 
-          <!-- Static Help Section -->
-          <h3></h3>
-          <p></p>
+
         </div>
       </div>
     </div>
@@ -273,6 +328,7 @@ ul {
     overflow: hidden;  /* Prevent overflow of carousel content */
   }
 
+
   /* buttons ///////////////////////////////////////////////*/
  
 /* Center carousel control buttons with responsive top positioning */
@@ -334,5 +390,109 @@ ul {
     width: 60%; /* Adjust image size for mobile */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dynamic Services Section /////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Services Section Styles */
+#services-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+#services-section .service-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#services-section .service-box {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.333% - 20px); /* Ensure they take up equal space */
+}
+
+#services-section .service-box:hover {
+  transform: translateY(-10px);
+}
+
+#services-section .service-icon {
+  font-size: 40px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+#services-section .service-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#services-section .service-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#services-section .service-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#services-section .service-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Ensure equal sizing for services in laptop view (larger screens) */
+@media (min-width: 768px) {
+  #services-section .service-box {
+    flex: 1 1 calc(5% - 30px); /* 3 equal columns with 30px space */
+  }
+}
+
+/* Stack services vertically on smaller screens (mobile view) */
+@media (max-width: 767px) {
+  #services-section .service-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #services-section .service-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+
 
 </style>
