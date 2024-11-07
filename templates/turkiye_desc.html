@@ -12,7 +12,7 @@
         <div class="col-lg-12 content">
           <h1> Turkiye Burslari </h1>
 
-          <h3>Course Overview</h3>
+          <!-- <h3>Course Overview</h3> -->
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
             Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
@@ -23,14 +23,18 @@
 
           <!-- Dynamic Pros and Cons - Carousel -->
           <h3>Pros:</h3>
-          <div id="pros-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+          <div id="pros-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="10000">
             <div class="carousel-inner">
               <!-- Slide 1 -->
               <div class="carousel-item active">
                 <div class="carousel-container">
-                  <img src="static/assets/img/about.jpg" alt="Pro 1" class="carousel-img">
+                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 1" class="carousel-img">
                   <h4>Pro 1</h4>
-                  <p>Pro description 1</p>
+                  <p>
+                    1Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+                    ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                  </p>
                 </div>
               </div>
               <!-- Slide 2 -->
@@ -38,7 +42,11 @@
                 <div class="carousel-container">
                   <img src="static/assets/img/cappadocia.jpg" alt="Pro 2" class="carousel-img">
                   <h4>Pro 2</h4>
-                  <p>Pro description 2</p>
+                  <p>
+                    2Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+                    ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                  </p>
                 </div>
               </div>
               <!-- Slide 3 -->
@@ -46,7 +54,11 @@
                 <div class="carousel-container">
                   <img src="static/assets/img/about.jpg" alt="Pro 3" class="carousel-img">
                   <h4>Pro 3</h4>
-                  <p>Pro description 3</p>
+                  <p>
+                    3Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+                    ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                  </p>
                 </div>
               </div>
               <!-- Slide 4 -->
@@ -54,7 +66,11 @@
                 <div class="carousel-container">
                   <img src="static/assets/img/cappadocia.jpg" alt="Pro 4" class="carousel-img">
                   <h4>Pro 4</h4>
-                  <p>Pro description 4</p>
+                  <p>
+                    4Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+                    ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                  </p>
                 </div>
               </div>
             </div>
@@ -66,10 +82,29 @@
           <!-- End Dynamic Pros and Cons Carousel -->
 
           <!-- Dynamic FAQ -->
-          <h3>Frequently Asked Questions:</h3>
-          <ul>
-            <li><strong></strong></li>
-          </ul>
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-item">
+            <strong class="faq-question">What is the application deadline?</strong>
+            <ul>
+              <li class="faq-answer">The application deadline is March 15th each year.</li>
+            </ul>
+          </div>
+          <div class="faq-item">
+            <strong class="faq-question">How can I apply for the scholarship?</strong>
+            <ul>
+              <li class="faq-answer">You can apply through the official scholarship portal.</li>
+            </ul>
+          </div>
+          <div class="faq-item">
+            <strong class="faq-question">What is the eligibility criteria?</strong>
+            <ul>
+              <li class="faq-answer">Applicants must meet the age and academic requirements as specified on the official site.
+                Applicants must meet the age and academic requirements as specified on the official site
+              </li>
+            </ul>
+          </div>
+
+
 
           <!-- Static Help Section -->
           <h3></h3>
@@ -98,6 +133,8 @@
   .content h1 {
     font-size: 36px;
     font-weight: 600;
+    text-align: center;
+    color: #4169E1; /* Royal Blue */
   }
 
   /* Course Content Section */
@@ -115,42 +152,77 @@
     font-size: 28px;
     color: #ff6f00; /* Orange color matching your theme */
     font-weight: 600;
+    text-align: center;
+
   }
 
   .course-content p {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
+    text-align: center;
   }
 
-  .course-content ul {
-    list-style-type: none;
-    padding-left: 0;
+
+
+
+
+
+  
+/* FAQ Styling */
+.faq-question {
+  font-size: 18px;  /* Smaller font size for the question */
+  color: #4169E1; /* Royal Blue */
+  font-weight: 600;
+  margin-bottom: 5px; /* Space between question and answer */
+  font-style: italic;
+}
+
+.faq-answer {
+  font-size: 16px;
+  color: #333; /* Answer text color */
+  margin-left: 20px; /* Align the answer with a left indent */
+  list-style-type: none;
+}
+
+.faq-answer::before {
+  content: "• "; /* Single orange bullet point before the answer */
+  color: #ff6f00; /* Orange bullet point */
+  margin-right: 10px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  text-align: center; /* Default center alignment for mobile */
+}
+
+/* Media query for laptop and larger screens */
+@media screen and (min-width: 768px) {
+  .faq-item {
+    text-align: left; /* Left align for laptop and larger screens */
   }
 
-  .course-content ul li {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 10px;
+  .faq-answer {
+    margin-left: 0; /* Remove left margin on larger screens */
   }
+}
 
-  .course-content ul li i {
-    color: #ff6f00;
-    margin-right: 10px;
-  }
+ul {
+  padding-left: 0;
+  margin-top: 5px;
+}
 
-  .course-content ul li span {
-    font-weight: 500;
-  }
 
-  .course-content h3 + p {
-    font-size: 18px;
-    color: #555;
-  }
 
-  .course-content ul li .bi {
-    font-size: 20px;
-  }
+
+
+
+
+
+
+
+
+
 
   /* Mobile Responsiveness */
   @media screen and (max-width: 768px) {
@@ -163,10 +235,18 @@
     }
   }
 
-  /* Ensure carousel container is positioned correctly */
+
+
+
+  /* Ensure carousel container is positioned correctly //////////////////////////////////////////////*/
+
+  /* Style the carousel item container */
+
+
   .carousel-container {
     text-align: center;
     padding: 20px;
+    align-items: center; /* Center horizontally */
   }
 
   /* Make carousel images smaller */
@@ -174,12 +254,14 @@
     width: 50%; /* Make images smaller */
     height: auto;
     margin-bottom: 15px;
+    border-radius: 15px;
   }
 
   /* Styling for carousel description */
   .carousel-container h4 {
     font-size: 20px;
     margin: 10px 0;
+    color: #4169E1; /* Royal Blue */
   }
 
   .carousel-container p {
@@ -191,41 +273,66 @@
     overflow: hidden;  /* Prevent overflow of carousel content */
   }
 
-  /* Simplified buttons */
+  /* buttons ///////////////////////////////////////////////*/
+ 
+/* Center carousel control buttons with responsive top positioning */
+.carousel-control-prev.custom-prev,
+.carousel-control-next.custom-next {
+  position: absolute;
+  z-index: 10;
+  transform: translateY(-50%);
+  background: none;
+  color: #000;
+  border: none;
+  font-size: 30px;
+  width: 40px; /* Adjust width if necessary */
+  height: 40px; /* Adjust height if necessary */
+}
+
+/* Default positioning for larger screens */
+.carousel-control-prev.custom-prev {
+  top: 40%; /* Position 40% from the top for laptop view */
+  left: 10px;
+}
+
+.carousel-control-next.custom-next {
+  top: 40%; /* Position 40% from the top for laptop view */
+  right: 10px;
+}
+
+/* Hover effect for control buttons */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  color: #ff6f00; /* Change color on hover */
+}
+
+/* Adjustments for screens under 1024px (laptop and tablet) */
+@media screen and (max-width: 1024px) {
+  .carousel-control-prev.custom-prev,
+  .carousel-control-next.custom-next {
+    top: 40%; /* Position control buttons at 40% from the top */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 768px) {
+  .carousel-control-prev.custom-prev,
+  .carousel-control-next.custom-next {
+    top: 25%; /* Position control buttons at 35% from the top */
+    font-size: 25px; /* Adjust font size for mobile */
+  }
+
   .carousel-control-prev.custom-prev {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    transform: translateY(-50%);
-    left: 10px; /* Move to the left side */
-    background: none;
-    color: #000;
-    border: none;
-    font-size: 30px; /* Larger font for the arrow */
+    left: 5%; /* Adjust distance from the left edge on mobile */
   }
 
   .carousel-control-next.custom-next {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    transform: translateY(-50%);
-    right: 10px; /* Move to the right side */
-    background: none;
-    color: #000;
-    border: none;
-    font-size: 30px; /* Larger font for the arrow */
+    right: 5%; /* Adjust distance from the right edge on mobile */
   }
 
-  /* Adjust the appearance of the buttons */
-  .carousel-control-prev:hover,
-  .carousel-control-next:hover {
-    color: #ff6f00; /* Change color on hover */
+  .carousel-img {
+    width: 60%; /* Adjust image size for mobile */
   }
+}
 
-  /* Mobile Responsiveness */
-  @media screen and (max-width: 768px) {
-    .carousel-img {
-      width: 80%; /* Make image bigger on mobile */
-    }
-  }
 </style>
