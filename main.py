@@ -10,25 +10,18 @@ import secrets
 from flask_login import LoginManager, login_user, current_user, logout_user
 from functools import wraps
 from flask import abort
-
+from database import db, User, Base
 
 app = Flask(__name__)
-class Base(DeclarativeBase):
-    pass
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///global_grants.db"
 secret_key = secrets.token_hex(16)
 app.config['SECRET_KEY'] = secret_key
-db = SQLAlchemy(model_class=Base)
+
 db.init_app(app)
 
-# Create a User table for all your registered users
-class User(UserMixin, db.Model):
-    __tablename__ = "users"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    email: Mapped[str] = mapped_column(String(100), unique=True)
-    password: Mapped[str] = mapped_column(String(100))
-    name: Mapped[str] = mapped_column(String(100))
+
 
     
 
@@ -171,6 +164,16 @@ def turkiye_desc():
 @app.route('/poland-desc')
 def poland_desc():
     return render_template("poland_desc.html")
+
+
+
+@app.route('/poland-unis')
+def poland_unis():
+    return render_template("poland_unis.html")
+
+@app.route('/poland-uni-details')
+def poland_uni_details():
+    return render_template("poland_uni_details.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
