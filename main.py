@@ -4,13 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Float
 from flask_login import UserMixin
-from forms import RegisterForm, LoginForm
+from forms import RegisterForm, LoginForm, AddUniversityForm
 from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
 from flask_login import LoginManager, login_user, current_user, logout_user
 from functools import wraps
 from flask import abort
-from database import db, User, Base
+from database import db, User, Base, University
 
 app = Flask(__name__)
 
@@ -161,19 +161,75 @@ def dashboard():
 def turkiye_desc():
     return render_template("turkiye_desc.html")
 
-@app.route('/poland-desc')
-def poland_desc():
-    return render_template("poland_desc.html")
+# @app.route('/poland-desc')
+# def poland_desc():
+#     return render_template("poland_desc.html")
 
 
 
-@app.route('/poland-unis')
-def poland_unis():
-    return render_template("poland_unis.html")
+# @app.route('/poland-unis')
+# def poland_unis():
+#     return render_template("poland_unis.html")
 
-@app.route('/poland-uni-details')
-def poland_uni_details():
-    return render_template("poland_uni_details.html")
+# @app.route('/university-details')
+# def university_details():
+#     return render_template("university_details.html")
+
+
+
+@app.route('/university-list', methods=['GET', 'POST'])
+def university_list():
+    universities = University.query.all()  # Query to get all universities
+    return render_template('universities.html', universities=universities)
+
+@app.route('/add-university-page', methods=['GET', 'POST'])
+def add_university_page():
+    form = AddUniversityForm() 
+    return render_template('add_university.html', form=form)
+
+
+@app.route('/add-university', methods=['GET', 'POST'])
+def add_university():
+    form = AddUniversityForm()
+    if form.validate_on_submit():
+        new_uni = University(
+            name=form.uni_name.data,
+            logo_url=form.uni_logo.data,
+            picture_url=form.uni_picture.data,
+            description=form.uni_desc.data,
+            uni_off_page_url=form.uni_official_page_link.data,
+            location=form.uni_location.data,
+            language_of_education=form.language_of_education.data,
+            prep_school=form.prep_school.data,
+            study_programs_link=form.study_programs_link.data,
+            application_deadline=form.application_deadline.data,
+            application_fee=form.application_fee.data,
+            tuition_fee=form.tuition_fee.data,
+            tuition_fee_link=form.tuition_fee_link.data,
+            requirements=form.requirements.data,
+            scholarship_available=form.scholarship_available.data,
+            country=form.country.data
+        )
+        
+        # Add the new university to the database and commit the transaction
+        db.session.add(new_uni)
+        db.session.commit()
+
+        # Redirect to a success page or the university list page (you can customize as needed)
+        return redirect(url_for('university_list'))
+
+    return render_template('universities.html', form=form)
+
+
+#################################### Uni goes to Uni Details
+
+@app.route('/university/<int:uni_id>')
+def university_details(uni_id):
+    # Query the university by ID
+    university = University.query.get_or_404(uni_id)
+    return render_template('university_details.html', university=university)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

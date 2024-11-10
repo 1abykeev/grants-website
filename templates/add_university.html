@@ -1,0 +1,151 @@
+
+
+{% include "header.html" %}
+
+{% block content %}
+<main class="main">
+    <section class="section add-university-section">
+        <div class="container">
+            <h1>Add University</h1>
+
+            <!-- Form for adding university -->
+            <form method="POST" action="{{ url_for('add_university') }}">
+                {{ form.hidden_tag() }}  <!-- This is for CSRF protection -->
+                
+                <div class="form-group">
+                    <label for="uni_name">University Name</label>
+                    {{ form.uni_name(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="uni_logo">Logo PNG Link</label>
+                    {{ form.uni_logo(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="uni_picture">University Picture Link</label>
+                    {{ form.uni_picture(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="uni_desc">Description</label>
+                    {{ form.uni_desc(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="uni_official_page_link">Official Webpage Link</label>
+                    {{ form.uni_official_page_link(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="uni_location">Location</label>
+                    {{ form.uni_location(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="language_of_education">Language of Education</label>
+                    {{ form.language_of_education(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="prep_school">Has Prep School</label>
+                    {{ form.prep_school(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="study_programs_link">Study Programs Link</label>
+                    {{ form.study_programs_link(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="application_deadline">Application Deadline</label>
+                    {{ form.application_deadline(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="application_fee">Application Fee</label>
+                    {{ form.application_fee(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="tuition_fee">Tuition Fee</label>
+                    {{ form.tuition_fee(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="tuition_fee_link">Tuition Fee Link</label>
+                    {{ form.tuition_fee_link(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Requirements</label>
+                    {{ form.requirements(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="scholarship_available">Scholarship Available</label>
+                    {{ form.scholarship_available(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    {{ form.country(class="form-control") }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% include "footer.html" %}
+
+<style>
+    .add-university-section {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .add-university-section h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        font-size: 16px;
+    }
+
+    /* Ensure all fields are the same size, including prep school and scholarship */
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+</style>
