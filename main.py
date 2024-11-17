@@ -161,9 +161,9 @@ def dashboard():
 def turkiye_desc():
     return render_template("turkiye_desc.html")
 
-# @app.route('/poland-desc')
-# def poland_desc():
-#     return render_template("poland_desc.html")
+@app.route('/poland-desc')
+def poland_desc():
+    return render_template("poland_desc.html")
 
 
 
@@ -177,10 +177,21 @@ def turkiye_desc():
 
 
 
-@app.route('/university-list', methods=['GET', 'POST'])
-def university_list():
-    universities = University.query.all()  # Query to get all universities
+# @app.route('/university-list', methods=['GET', 'POST'])
+# def university_list():
+#     universities = University.query.all()  # Query to get all universities
+#     return render_template('universities.html', universities=universities)
+
+@app.route('/university-list-poland', methods=['GET', 'POST'])
+def university_list_poland():
+    universities = University.query.filter_by(country='Poland').all()  
     return render_template('universities.html', universities=universities)
+
+@app.route('/university-list-turkiye', methods=['GET', 'POST'])
+def university_list_turkiye():
+    universities = University.query.filter_by(country='Turkey').all()  
+    return render_template('universities.html', universities=universities)
+
 
 @app.route('/add-university-page', methods=['GET', 'POST'])
 def add_university_page():
