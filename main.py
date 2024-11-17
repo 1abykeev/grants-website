@@ -176,11 +176,11 @@ def poland_desc():
 #     return render_template("university_details.html")
 
 
-
-# @app.route('/university-list', methods=['GET', 'POST'])
-# def university_list():
-#     universities = University.query.all()  # Query to get all universities
-#     return render_template('universities.html', universities=universities)
+# for admin only
+@app.route('/university-list', methods=['GET', 'POST'])
+def university_list():
+    universities = University.query.all()  # Query to get all universities
+    return render_template('universities.html', universities=universities)
 
 @app.route('/university-list-poland', methods=['GET', 'POST'])
 def university_list_poland():

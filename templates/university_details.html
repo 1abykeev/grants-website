@@ -6,7 +6,7 @@
     <section class="section university-detail-section">
         <div class="container">
             <h1>{{ university.name }}</h1>
-            <img src="{{ university.picture_url }}" alt="{{ university.name }}" class="uni-picture">
+            <img src="{{ url_for('static', filename=university.picture_url) }}" alt="{{ university.name }}" class="uni-picture">
             
             <p><strong>Description:</strong> {{ university.description }}</p>
             <p><strong>Location:</strong> {{ university.location }}</p>

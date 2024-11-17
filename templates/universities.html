@@ -8,18 +8,7 @@
     <section class="section universities-section">
         <div class="container">
             <h1>Universities We Help Apply To</h1>
-            
-            <!-- Add University Button -->
-            <div class="row mb-3">
-                <a href="{{ url_for('add_university_page') }}" class="btn btn-primary">Add University</a>
-            </div>
-
-            <!-- Country Filter Links -->
-            <div class="row">
-                <a href="">Poland Universities</a> |
-                <a href="">Turkey Universities</a>
-            </div>
-
+    
             <!-- Check if universities exist -->
 
             <div class="row">
@@ -30,7 +19,8 @@
                         <a href="{{ url_for('university_details', uni_id=uni.id) }}" class="university-card-link">
                             <div class="university-card p-4 border rounded shadow-sm d-flex align-items-center">
                                 <div class="uni-logo mr-4">
-                                    <img src="{{ uni.logo_url }}" alt="{{ uni.name }} Logo" class="img-fluid">
+                                    <img src="{{ url_for('static', filename=uni.logo_url) }}" alt="{{ uni.name }} Logo" class="img-fluid">
+                                    <!-- <img src="{{ uni.logo_url }}" alt="{{ uni.name }} Logo" class="img-fluid"> -->
                                 </div>
                                 <div class="university-info ml-4">
                                     <h2 class="university-name">{{ uni.name }}</h2>
@@ -48,6 +38,12 @@
                     </div>
                 {% endif %}
             </div>
+
+            <!-- Add University Button -->
+            <div class="row mb-3">
+                <a href="{{ url_for('add_university_page') }}" class="btn btn-primary">Add University</a>
+            </div>
+
         </div>
     </section>
 </main>
@@ -130,5 +126,9 @@
     }
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
 </style>
