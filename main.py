@@ -185,7 +185,14 @@ def turkiye_desc():
 def poland_desc():
     return render_template("poland_desc.html")
 
+@app.route('/turkiye-direct-application')
+def turkiye_direct():
+    return render_template("turkiye_direct.html")
 
+
+@app.route('/hungary-desc')
+def hungary_desc():
+    return render_template("hungary_desc.html")
 
 # @app.route('/poland-unis')
 # def poland_unis():
