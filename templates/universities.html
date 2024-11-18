@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="university-info ml-4">
                                     <h2 class="university-name">{{ uni.name }}</h2>
-                                    <p class="university-description">{{ uni.description[:100] }}...</p>
+                                    <p class="university-description">{{ uni.description[:100] | nl2br | safe  }}...</p>
                                 </div>
                             </div>
                         </a>

@@ -11,6 +11,11 @@ from flask_login import LoginManager, login_user, current_user, logout_user
 from functools import wraps
 from flask import abort
 from database import db, User, Base, University
+from markupsafe import Markup
+
+import bleach
+
+
 
 app = Flask(__name__)
 
@@ -48,6 +53,21 @@ def login_required(f):
             return abort(403)  # Forbidden
         return f(*args, **kwargs)
     return decorated_function
+
+
+
+
+
+
+
+
+# Define the custom nl2br filter
+@app.template_filter('nl2br')
+def nl2br_filter(value):
+    return Markup(value.replace("\n", "<br>"))
+
+
+
 
 
 @app.route('/register', methods=["GET", "POST"])
@@ -203,11 +223,15 @@ def add_university_page():
 def add_university():
     form = AddUniversityForm()
     if form.validate_on_submit():
+
+        # Sanitize the description input to allow only safe HTML tags
+        sanitized_description = bleach.clean(form.uni_desc.data, tags=['strong', 'em', 'u', 'p', 'b', 'i'], attributes={})
+        
         new_uni = University(
             name=form.uni_name.data,
             logo_url=form.uni_logo.data,
             picture_url=form.uni_picture.data,
-            description=form.uni_desc.data,
+            description=sanitized_description,
             uni_off_page_url=form.uni_official_page_link.data,
             location=form.uni_location.data,
             language_of_education=form.language_of_education.data,

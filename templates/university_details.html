@@ -1,14 +1,17 @@
 
 
+
+
+<!-- templates/university_details.html -->
 {% include "header.html" %}
 
 <main class="main">
     <section class="section university-detail-section">
         <div class="container">
             <h1>{{ university.name }}</h1>
-            <img src="{{ url_for('static', filename=university.picture_url) }}" alt="{{ university.name }}" class="uni-picture">
-            
-            <p><strong>Description:</strong> {{ university.description }}</p>
+
+               
+            <p><strong>Description:</strong> {{ university.description | nl2br }}</p>   
             <p><strong>Location:</strong> {{ university.location }}</p>
             <p><strong>Language of Education:</strong> {{ university.language_of_education }}</p>
             <p><strong>Prep School Available:</strong> {{ university.prep_school }}</p>
@@ -22,6 +25,7 @@
             <div class="links-section">
                 <a href="{{ university.study_programs_link }}" target="_blank" class="btn btn-info">Study Programs</a>
                 <a href="{{ university.tuition_fee_link }}" target="_blank" class="btn btn-info">Tuition Fees</a>
+                <a href="{{ university.uni_off_page_url }}" target="_blank" class="btn btn-info">Visit Official Webpage</a>  
             </div>
 
             <!-- Buttons to Edit and Delete University -->
@@ -38,6 +42,10 @@
 {% include "footer.html" %}
 
 <style>
+
+    .p-desc {
+        text-align: center;
+    }
     .university-detail-section {
         padding: 20px;
         background-color: #f8f9fa;
@@ -45,23 +53,22 @@
     }
     .university-detail-section h1 {
         text-align: center;
-        margin-bottom: 20px;
-        color: #007bff;
+        color: black;
+        font-weight: 700
     }
+
     .uni-picture {
         display: block;
         margin: 0 auto 20px;
-        max-width: 100%;
-        height: auto;
+        max-width: 95%; 
+        height: 500px;
         border-radius: 8px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .university-detail-section p {
-        font-size: 16px;
-        color: #333;
-        line-height: 1.5;
-        margin-bottom: 10px;
-    }
+
+
+  
+
     .links-section {
         margin-top: 20px;
         display: flex;
@@ -92,16 +99,18 @@
 
     /* Custom CSS to ensure prep school and scholarship fields are the same size as other fields */
     .university-detail-section p {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
+        display: flex;
+        flex-direction: column; /* Place content on separate lines */
+        margin-bottom: 15px; /* Reduce the spacing between lines */
         font-size: 16px;
+        line-height: 1.2; /* Adjust line height for tighter spacing */
+        color: black;
     }
-    
+
     .university-detail-section p strong {
-        display: inline-block;
-        width: 230px;
+        color: #ff6f00;
         font-weight: bold;
+        margin-bottom: 5px;
     }
+
 </style>
