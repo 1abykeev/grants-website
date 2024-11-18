@@ -40,9 +40,11 @@
             </div>
 
             <!-- Add University Button -->
+            {% if current_user.id == 1: %}
             <div class="row mb-3">
                 <a href="{{ url_for('add_university_page') }}" class="btn btn-primary">Add University</a>
             </div>
+            {% endif %}
 
         </div>
     </section>

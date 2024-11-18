@@ -263,6 +263,9 @@ def add_university():
     return render_template('universities.html', form=form)
 
 
+
+
+
 #################################### Uni goes to Uni Details
 
 @app.route('/university/<int:uni_id>')
