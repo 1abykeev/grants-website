@@ -59,6 +59,18 @@ def login_required(f):
 
 
 
+# Create an admin-only decorator
+def admin_only(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # If id is not 1 then return abort with 403 error
+        if current_user.id != 1:
+            return abort(403)
+        # Otherwise continue with the route function
+        return f(*args, **kwargs)
+
+    return decorated_function
+
 
 
 # Define the custom nl2br filter
@@ -263,6 +275,14 @@ def add_university():
     return render_template('universities.html', form=form)
 
 
+# Use a decorator so only an admin user can delete a post
+@app.route("/delete/<int:uni_id>", methods=['POST'])
+@admin_only
+def delete_uni(uni_id):
+    uni_to_delete = db.get_or_404(University, uni_id)
+    db.session.delete(uni_to_delete)
+    db.session.commit()
+    return redirect(url_for('university_list'))
 
 
 
