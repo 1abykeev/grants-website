@@ -23,7 +23,7 @@
                                     <!-- <img src="{{ uni.logo_url }}" alt="{{ uni.name }} Logo" class="img-fluid"> -->
                                 </div>
                                 <div class="university-info ml-4">
-                                    <h2 class="university-name">{{ uni.name }}</h2>
+                                    <h2 class="university-name">{{ uni.name | nl2br | safe   }}</h2>
                                     <p class="university-description">{{ uni.description[:100] | nl2br | safe  }}...</p>
                                 </div>
                             </div>

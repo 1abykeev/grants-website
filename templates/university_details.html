@@ -8,18 +8,16 @@
 <main class="main">
     <section class="section university-detail-section">
         <div class="container">
-            <h1>{{ university.name }}</h1>
-
-               
+            <h1>{{ university.name | nl2br  }}</h1>
             <p><strong>Description:</strong> {{ university.description | nl2br }}</p>   
-            <p><strong>Location:</strong> {{ university.location }}</p>
-            <p><strong>Language of Education:</strong> {{ university.language_of_education }}</p>
-            <p><strong>Prep School Available:</strong> {{ university.prep_school }}</p>
-            <p><strong>Application Deadline:</strong> {{ university.application_deadline }}</p>
-            <p><strong>Application Fee:</strong> {{ university.application_fee }}</p>
-            <p><strong>Tuition Fee:</strong> {{ university.tuition_fee }}</p>
-            <p><strong>Requirements:</strong> {{ university.requirements }}</p>
-            <p><strong>Scholarships Available:</strong> {{ university.scholarship_available }}</p>
+            <p><strong>Location:</strong> {{ university.location | nl2br  }}</p>
+            <p><strong>Language of Education:</strong> {{ university.language_of_education | nl2br  }}</p>
+            <p><strong>Prep School Available:</strong> {{ university.prep_school | nl2br  }}</p>
+            <p><strong>Application Deadline:</strong> {{ university.application_deadline | nl2br  }}</p>
+            <p><strong>Application Fee:</strong> {{ university.application_fee | nl2br  }}</p>
+            <p><strong>Tuition Fee:</strong> {{ university.tuition_fee | nl2br  }}</p>
+            <p><strong>Requirements:</strong> {{ university.requirements | nl2br  }}</p>
+            <p><strong>Scholarships Available:</strong> {{ university.scholarship_available | nl2br  }}</p>
 
             <!-- Links for additional information -->
             <div class="links-section">
@@ -31,7 +29,7 @@
             <!-- Buttons to Edit and Delete University -->
             {% if current_user.id == 1: %}
             <div class="button-section">
-                <a href="" class="btn btn-warning">Edit University</a>
+                <a href="{{ url_for('edit_university', university_id=university.id)}}" class="btn btn-warning">Edit University</a>
                 <form action="{{ url_for('delete_uni', uni_id=university.id) }}" method="POST" style="display:inline;">
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this university?')">Delete University</button>
                 </form>

@@ -6,7 +6,12 @@
 <main class="main">
     <section class="section add-university-section">
         <div class="container">
+
+            {% if is_edit: %}
+            <h1>Edit Post</h1>
+            {% else: %}
             <h1>Add University</h1>
+            {% endif %}
 
             <!-- Form for adding university -->
             <form method="POST" action="{{ url_for('add_university') }}">
