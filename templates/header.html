@@ -46,7 +46,7 @@
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="{{ url_for('index')}}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="static/assets/img/logotip.jpg" alt="Global Grants Logo" class="img-fluid logo-img">
+          <img src="{{ url_for('static', filename='assets/img/logotip.jpg') }}" alt="Global Grants Logo" class="img-fluid logo-img">
           
         </a>
 

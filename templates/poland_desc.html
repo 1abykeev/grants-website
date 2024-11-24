@@ -12,7 +12,7 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4">
         <div class="col-lg-12 content">
-          <h1> Poland Direct Application </h1>
+          <h1> Прямое поступление в Польшу </h1>
 
           <!-- <h3>Course Overview</h3> -->
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
@@ -24,13 +24,13 @@
           </p>
 
           <!-- Dynamic Pros and Cons - Carousel -->
-          <h3>Pros:</h3>
+          <h3> Преимущества образования в Польше </h3>
           <div id="pros-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="10000">
             <div class="carousel-inner">
               <!-- Slide 1 -->
               <div class="carousel-item active">
                 <div class="carousel-container">
-                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 1" class="carousel-img">
+                  <img src="static/assets/img/poland_adv1.jpg" alt="Pro 1" class="carousel-img">
                   <h4>Pro 1</h4>
                   <p>
                     1Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -42,7 +42,7 @@
               <!-- Slide 2 -->
               <div class="carousel-item">
                 <div class="carousel-container">
-                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 2" class="carousel-img">
+                  <img src="static/assets/img/poland_adv2.jpg" alt="Pro 2" class="carousel-img">
                   <h4>Pro 2</h4>
                   <p>
                     2Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -54,7 +54,7 @@
               <!-- Slide 3 -->
               <div class="carousel-item">
                 <div class="carousel-container">
-                  <img src="static/assets/img/about.jpg" alt="Pro 3" class="carousel-img">
+                  <img src="static/assets/img/poland_adv3.jpg" alt="Pro 3" class="carousel-img">
                   <h4>Pro 3</h4>
                   <p>
                     3Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -66,7 +66,7 @@
               <!-- Slide 4 -->
               <div class="carousel-item">
                 <div class="carousel-container">
-                  <img src="static/assets/img/cappadocia.jpg" alt="Pro 4" class="carousel-img">
+                  <img src="static/assets/img/poland_adv4.jpg" alt="Pro 4" class="carousel-img">
                   <h4>Pro 4</h4>
                   <p>
                     4Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -86,12 +86,12 @@
           <!-- Text Us Section -->
           <div>
             <div style="text-align: center; margin-top: 40px;">
-              <h2>Contack with us and check your chances</h2>
+              <h2>Запишись на бесплатную консультацию и узнай свои шансы на поступление!</h2>
             </div>
 
             <!-- Link to University List -->
             <div style="text-align: center; margin-top: 20px;">
-              <a href="/universities" class="uni-button">Text Us</a>
+              <a href="/universities" class="uni-button">Записаться на консультацию</a>
             </div>
            </div>
            <!-- End of Text Us Section -->
@@ -100,12 +100,12 @@
           <!-- Title Message -->
            <div>
             <div style="text-align: center; margin-top: 40px;">
-              <h2>Click below to see all available universities we help you apply to!</h2>
+              <h2>Узнай о всех университетах в которые мы помогает поступить!</h2>
             </div>
 
             <!-- Link to University List -->
             <div style="text-align: center; margin-top: 20px;">
-              <a href="{{ url_for('university_list_poland')}}" class="uni-button">Explore Universities</a>
+              <a href="{{ url_for('university_list_poland')}}" class="uni-button">Список Польских Университетов</a>
             </div>
            </div>
 
@@ -192,14 +192,24 @@
 
   /* Page Title */
   .page-title {
-    background-image: url('static/assets/img/cappadocia.jpg');
+    background-image: url('static/assets/img/poland_title.jpg');
     background-position: center;
     background-repeat: no-repeat; /* Prevents the image from repeating */
     color: #fff;
     text-align: center;
     padding: 120px 0;
     margin-top: 30px;
+    margin-left: 5%;  /* Less margin on mobile */
+    margin-right: 5%; /* Less margin on mobile */
   }
+
+  @media (max-width: 768px) {
+  .page-title {
+    margin-left: 5%;  /* Less margin on mobile */
+    margin-right: 5%; /* Less margin on mobile */
+    padding: 80px 0;  /* Adjust padding for mobile if needed */
+  }
+}
 
   .content h1 {
     font-size: 36px;
