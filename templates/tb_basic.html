@@ -1,0 +1,193 @@
+
+
+{% include "header.html" %}
+
+<body>
+    <br>
+    <h1 style="text-align: center; margin-bottom: 40px;">Basic Türkiye Bursları Application</h1>
+
+    <div class="folder-container">
+        <!-- Folder 1 -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder('folder1')">BASIC 1.0</div>
+            <div class="folder-content" id="folder1">
+
+                <!-- Subfolder 1.1 -->
+                <div class="folder">
+                    <div class="folder-header" onclick="toggleFolder('folder1_1')">1.1 ЗНАКОМСТВО И СБОР ДОКУМЕНТОВ</div>
+                    <div class="folder-content" id="folder1_1">
+                        <div class="video-container">
+                            <iframe src="https://drive.google.com/file/d/13JN8XmOx4BBP9c_TPHI8lNX8P34CZO32/preview" width="100%" height="400"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subfolder 1.2 -->
+                <div class="folder">
+                    <div class="folder-header" onclick="toggleFolder('folder1_2')">1.2 СОЗДАНИЯ АККАУНТА ДЛЯ ГРАНТА</div>
+                    <div class="folder-content" id="folder1_2">
+                        <h4>Как сделать регистрацию на сайте Türkiye Bursları?</h4>
+                            <ol>
+                                <li>Вы заходите на сайт <a href="https://www.turkiyeburslari.gov.tr/" target="_blank">https://www.turkiyeburslari.gov.tr/</a></li>
+                                <li>Меняете язык сайта на Английский</li>
+                                <li>Нажимаете на кнопку APPLICATION/LOGIN в верхнем правом углу</li>
+                                <li>Нажимаете на кнопку Register</li>
+                                <li>Заполняете поля (как в паспорте), аккаунт GMAIL должен быть рабочий (следующие 5 лет будете использовать этот аккаунт)</li>
+                                <li>Далее вам придет код на GMAIL</li>
+                                <li>Подтверждаете код и ваш аккаунт готов!</li>
+                            </ol>                        
+                    </div>
+                </div>
+                
+                <!-- Subfolder 1.3 -->
+                <div class="folder">
+                    <div class="folder-header" onclick="toggleFolder('folder1_3')">1.3 ПРИМЕРЫ ДОКУМЕНТОВ </div>
+                    <div class="folder-content" id="folder1_3">
+                        <h4>Пример Транскрипта</h4>
+                            <div class="pdf-container">
+                                <iframe src="https://drive.google.com/file/d/1BlwMsDVvu6ayaoEGbj0wTKOVwDSgG4RJ/preview" width="100%" height="auto"></iframe>
+                            </div>
+                            <br> <br> <br>
+                        <h4>Пример CV </h4>
+                            <div class="pdf-container">
+                                <iframe src="https://drive.google.com/file/d/1ctAivpztlvnGC4xrQdEpOUA-jaBHsRVs/preview" width="100%" height="auto"></iframe>
+                            </div>
+                            <br> <br> <br>
+                            <h4>Пример Аттестата </h4>
+                            <div class="pdf-container">
+                                <iframe src="https://drive.google.com/file/d/1qWw2SOZQxZxGiJ0aEVXMe1uWR-pN27MB/preview" width="100%" height="auto"></iframe>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Folder 2 -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder('folder2')">Folder 2</div>
+            <div class="folder-content" id="folder2">
+                <p>Content for Folder 2</p>
+            </div>
+        </div>
+
+        <!-- Folder 3 -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder('folder3')">Folder 3</div>
+            <div class="folder-content" id="folder3">
+                <p>Content for Folder 3</p>
+            </div>
+        </div>
+
+        <!-- Folder 4 -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder('folder4')">Folder 4</div>
+            <div class="folder-content" id="folder4">
+                <p>Content for Folder 4</p>
+            </div>
+        </div>
+
+        <!-- Folder 5 -->
+        <div class="folder">
+            <div class="folder-header" onclick="toggleFolder('folder5')">Folder 5</div>
+            <div class="folder-content" id="folder5">
+                <p>Content for Folder 5</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFolder(folderId) {
+            var folderContent = document.getElementById(folderId);
+            if (folderContent.style.display === "none" || folderContent.style.display === "") {
+                folderContent.style.display = "block";
+            } else {
+                folderContent.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+{% include "footer.html" %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .folder-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .folder {
+        margin-bottom: 20px;
+    }
+
+    .folder-header {
+        background-color: #3498db;
+        color: white;
+        padding: 20px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .folder-content {
+        display: none;
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .folder-header:hover {
+        background-color: #2980b9;
+    }
+
+    /* Extra space between the last folder and footer */
+    .folder-container {
+        margin-bottom: 50px;
+    }
+
+    /* Responsive PDF container */
+    .pdf-container {
+        margin-top: 20px;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 141.42%; /* 210mm / 148mm => A4 ratio */
+    }
+
+    .pdf-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Responsive folder container */
+    @media (max-width: 768px) {
+        .folder-container {
+            padding: 0 15px;
+        }
+
+        .folder-header {
+            font-size: 18px;
+            padding: 15px;
+        }
+
+        .folder-content {
+            font-size: 14px;
+            padding: 15px;
+        }
+    }
+
+    /* Styling for h4 tags */
+    h4 {
+        color: #ff6f00;
+    }
+</style>

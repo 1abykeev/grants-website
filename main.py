@@ -140,6 +140,8 @@ def login():
                 return redirect(url_for('turkiye' ))
             elif form.course_code.data == "240236":
                 return redirect(url_for('hungary'))
+            elif form.course_code.data == "240290":
+                return redirect(url_for('tb_basic'))
             elif form.course_code.data == "250303":
                 return redirect(url_for('dashboard'))
             else:
@@ -399,6 +401,19 @@ def university_details(uni_id):
     # Query the university by ID
     university = University.query.get_or_404(uni_id)
     return render_template('university_details.html', university=university)
+
+
+
+##################################### COURSES 
+
+@app.route('/course/tb-basic', methods=['GET', 'POST'])
+def tb_basic():
+    return render_template("tb_basic.html")
+        
+
+
+
+
 
 
 
