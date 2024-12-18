@@ -1,4 +1,5 @@
 
+
 {% include "header.html" %}
 
   <main class="main">
@@ -8,46 +9,82 @@
       <div class="container">
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ url_for('index')}}">Home</a></li>
             <li class="current">About</li>
           </ol>
         </nav>
-        <h1>About</h1>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- About Section -->
-    <section id="about" class="section about">
+<!-- About Section -->
+<section id="about" class="section about">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
-          </div>
-        </div>
+      <div class=" order-2 order-lg-1 content"> 
+        <h3> Global Grants </h3>
+        <p class="fst-italic">
+          Хочешь учиться заграницей, но не знаешь, с чего начать? Global Grants команда опытных менторов которая помогает
+           абитуриентам стать обладателями престижных стипендий и учиться в лучших университетах Турции, Польши и Венгрии. 
+        </p>
+        <p>
+          Мы специализируемся на подаче документов на программы <b>Türkiye Bursları</b>, <b>Stipendium Hungaricum</b>, а также 
+          на <b> прямое поступление в университеты Польши и Турции </b>. Наши услуги включают в себя полное сопровождение на каждом этапе,
+           начиная с выбора программы и заканчивая подготовкой к выезду.
+        </p>
+        <ul>
+          
+          
+          
 
+          <li><i class="bi bi-check2-all"></i> <span> Наши наставники это выпускники лучших вузов которые сами прошли весть путь получения стипендии,
+            а теперь помогают другим студентам поступить заграницу. </span></li>
+          <li><i class="bi bi-check2-all"></i> <span>Мы предоставляем пошаговые инструкции и всю практическую информацию
+            которая приведет вас к получению пригласительного письма от университета вашей мечты.</span></li>
+          <li><i class="bi bi-check2-all"></i> <span>Мы помогаем избежать ошибок, которые могут уменьшить ваши шансы на получение гранта.</span></li>
+        </ul>
+        <p>
+          Наша команда состоит из людей, которые сами выиграли полный грант и получают стипендии. Мы знаем все тонкости поступления,
+           и благодаря нашему опыту и поддержке вы разберетесь во всех нюансах подачи документов, так же получите мотивационное письмо, и будете готовы
+            к собеседованию. С нами ваш путь заграницу будет обречен на успех.
+        </p>
+        <p>
+          Учеба в Турции, Венгрии и Польше — это не просто
+           шанс получить образование, это возможность стать частью международного сообщества, получить незабываемый опыт и завести друзей со всего мира.
+        </p>
+        <p>
+          Мы искренне верим, что образование — это инвестиция в будущее. Если вы мечтаете учиться заграницей, свяжитесь
+           с нами. Мы поможем вам достичь ваших целей.
+        </p>
+
+        <p><b> Отзыв ученицы которая выиграла грант Türkiye Bursları! &nbsp;&nbsp;   </b> 
+          <a href="https://www.instagram.com/reel/Cz8Bd8uAit3/?igsh=MTh5eDd2ZG50aGEzbg==" target="_blank" rel="noopener noreferrer">
+            Смотреть
+          </a>
+        </p>
+
+        <p><b> Отзыв ученицы которая выиграла грант Türkiye Bursları! &nbsp;&nbsp;   </b> 
+          <a href="https://www.instagram.com/reel/DC9UxT9sB-I/?igsh=Z21tb25tc2c3NHM5" target="_blank" rel="noopener noreferrer">
+            Смотреть
+          </a>
+        </p>
+
+        <p><b> Отзыв ученика который выиграл грант Stipendium Hungaricum! &nbsp;&nbsp;   </b> 
+          <a href="https://www.instagram.com/reel/DC9TmWbMdLt/?igsh=MW9sMHdqaWE1YjF1" target="_blank" rel="noopener noreferrer">
+            Смотреть
+          </a>
+        </p>
       </div>
+    </div>
 
-    </section><!-- /About Section -->
+  </div>
+
+</section><!-- /About Section -->
+
+
+
+
 
   </main>
 
   {% include "footer.html" %}
-
