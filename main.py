@@ -14,6 +14,7 @@ from database import db, User, Base, University
 from markupsafe import Markup
 import bleach
 import os
+from email_validator import validate_email, EmailNotValidError
 
 
 app = Flask(__name__)
