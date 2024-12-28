@@ -18,8 +18,8 @@ import os
 
 app = Flask(__name__)
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///global_grants.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "postgresql://aktan:YmPRml5A83t25KNsaxAW2kZrsNYXFBJJ@dpg-cto0ibdsvqrc73b4vvg0-a/gg_postgresql")
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///global_grants.db")
 secret_key = secrets.token_hex(16)
 app.config['SECRET_KEY'] = secret_key
 
