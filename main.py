@@ -12,21 +12,18 @@ from functools import wraps
 from flask import abort
 from database import db, User, Base, University
 from markupsafe import Markup
-
 import bleach
-
+import os
 
 
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///global_grants.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///global_grants.db")
 secret_key = secrets.token_hex(16)
 app.config['SECRET_KEY'] = secret_key
 
 db.init_app(app)
-
-
 
     
 

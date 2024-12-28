@@ -1,0 +1,12 @@
+
+Flask
+Flask-SQLAlchemy
+SQLAlchemy
+Flask-Login
+Werkzeug
+Flask-WTF
+WTForms
+Flask-CKEditor
+python-dotenv
+bleach
+MarkupSafe
