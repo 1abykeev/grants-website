@@ -32,7 +32,7 @@ class LoginForm(FlaskForm):
 class AddUniversityForm(FlaskForm):
     uni_name = StringField("University Name", validators=[DataRequired()], render_kw={"rows": 30, "cols": 80})
     uni_logo = URLField("Logo PNG Link", validators=[Optional()], render_kw={"rows": 30, "cols": 80})
-    #uni_picture = StringField("University Picture Link", validators=[Optional()], render_kw={"rows": 30, "cols": 80})
+    uni_picture = StringField("University Picture Link", validators=[Optional()], render_kw={"rows": 30, "cols": 80})
     uni_desc = TextAreaField("Description", validators=[DataRequired()], render_kw={"rows": 50, "cols": 150})
     uni_official_page_link = URLField("Link to Official Webpage of University", validators=[Optional()], render_kw={"rows": 30, "cols": 80})
     uni_location = StringField("Location", validators=[DataRequired()], render_kw={"rows": 30, "cols": 80})
