@@ -9,21 +9,21 @@
     <section class="section university-detail-section">
         <div class="container">
             <h1>{{ university.name | nl2br  }}</h1>
-            <p><strong>Description:</strong> {{ university.description | nl2br }}</p>   
-            <p><strong>Location:</strong> {{ university.location | nl2br  }}</p>
-            <p><strong>Language of Education:</strong> {{ university.language_of_education | nl2br  }}</p>
-            <p><strong>Prep School Available:</strong> {{ university.prep_school | nl2br  }}</p>
-            <p><strong>Application Deadline:</strong> {{ university.application_deadline | nl2br  }}</p>
-            <p><strong>Application Fee:</strong> {{ university.application_fee | nl2br  }}</p>
-            <p><strong>Tuition Fee:</strong> {{ university.tuition_fee | nl2br  }}</p>
-            <p><strong>Requirements:</strong> {{ university.requirements | nl2br  }}</p>
-            <p><strong>Scholarships Available:</strong> {{ university.scholarship_available | nl2br  }}</p>
+            <p><strong>Описание:</strong> {{ university.description | nl2br }}</p>   
+            <p><strong>Локация:</strong> {{ university.location | nl2br  }}</p>
+            <p><strong>Язык Обучения :</strong> {{ university.language_of_education | nl2br  }}</p>
+            <p><strong>Языковой Год:</strong> {{ university.prep_school | nl2br  }}</p>
+            <p><strong>Дедлайн:</strong> {{ university.application_deadline | nl2br  }}</p>
+            <p><strong>Плата за подачу заявлен:</strong> {{ university.application_fee | nl2br  }}</p>
+            <p><strong>Оплата обучения:</strong> {{ university.tuition_fee | nl2br  }}</p>
+            <p><strong>Требования:</strong> {{ university.requirements | nl2br  }}</p>
+            <p><strong>Стипендии:</strong> {{ university.scholarship_available | nl2br  }}</p>
 
             <!-- Links for additional information -->
             <div class="links-section">
-                <a href="{{ university.study_programs_link }}" target="_blank" class="btn btn-info">Study Programs</a>
-                <a href="{{ university.tuition_fee_link }}" target="_blank" class="btn btn-info">Tuition Fees</a>
-                <a href="{{ university.uni_off_page_url }}" target="_blank" class="btn btn-info">Visit Official Webpage</a>  
+                <a href="{{ university.study_programs_link }}" target="_blank" class="btn btn-info">Доступные программы</a>
+                <a href="{{ university.tuition_fee_link }}" target="_blank" class="btn btn-info">Цены на обучения</a>
+                <a href="{{ university.uni_off_page_url }}" target="_blank" class="btn btn-info">Официальный сайт</a>  
             </div>
 
             <!-- Buttons to Edit and Delete University -->

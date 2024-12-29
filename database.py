@@ -34,7 +34,7 @@ class University(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)  # Changed to match form field `uni_name`
     logo_url = db.Column(db.String(255), nullable=True)  # Changed to match form field `uni_logo`
-    picture_url = db.Column(db.String(255), nullable=True)  # Changed to match form field `uni_picture`
+    #picture_url = db.Column(db.String(255), nullable=True)  # Changed to match form field `uni_picture`
     description = db.Column(db.Text, nullable=False)  # Changed to match form field `uni_desc`
     uni_off_page_url = db.Column(db.String(255), nullable=True)  # Changed to match form field `uni_official_page_link`
     location = db.Column(db.String(100), nullable=False)  # Changed to match form field `uni_location`
