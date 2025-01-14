@@ -243,28 +243,28 @@ def add_university():
     form = AddUniversityForm()
     if form.validate_on_submit():
 
-        # Define the allowed tags globally
+        # Define allowed tags for fields where sanitization is needed
         allowed_tags = ['strong', 'em', 'u', 'p', 'b', 'i']
 
-        # Sanitize each form field, allowing specific tags
-        sanitized_uni_name = bleach.clean(form.uni_name.data, tags=allowed_tags, attributes={})
-        sanitized_uni_logo = bleach.clean(form.uni_logo.data, tags=allowed_tags, attributes={})
-        sanitized_uni_picture = bleach.clean(form.uni_picture.data, tags=allowed_tags, attributes={})
-        sanitized_description = bleach.clean(form.uni_desc.data, tags=allowed_tags, attributes={})
-        sanitized_off_page_url = bleach.clean(form.uni_official_page_link.data, tags=allowed_tags, attributes={})
-        sanitized_location = bleach.clean(form.uni_location.data, tags=allowed_tags, attributes={})
-        sanitized_language_of_education = bleach.clean(form.language_of_education.data, tags=allowed_tags, attributes={})
-        sanitized_prep_school = bleach.clean(form.prep_school.data, tags=allowed_tags, attributes={})
-        sanitized_study_programs_link = bleach.clean(form.study_programs_link.data, tags=allowed_tags, attributes={})
-        sanitized_application_deadline = bleach.clean(form.application_deadline.data, tags=allowed_tags, attributes={})
-        sanitized_application_fee = bleach.clean(form.application_fee.data, tags=allowed_tags, attributes={})
-        sanitized_tuition_fee = bleach.clean(form.tuition_fee.data, tags=allowed_tags, attributes={})
-        sanitized_tuition_fee_link = bleach.clean(form.tuition_fee_link.data, tags=allowed_tags, attributes={})
-        sanitized_requirements = bleach.clean(form.requirements.data, tags=allowed_tags, attributes={})
-        sanitized_scholarship_available = bleach.clean(form.scholarship_available.data, tags=allowed_tags, attributes={})
-        sanitized_country = bleach.clean(form.country.data, tags=allowed_tags, attributes={})
+        # Process and sanitize form fields
+        sanitized_uni_name = bleach.clean(form.uni_name.data.strip(), tags=allowed_tags, attributes={})
+        sanitized_uni_logo = form.uni_logo.data.strip() if form.uni_logo.data else None
+        sanitized_uni_picture = form.uni_picture.data.strip() if form.uni_picture.data else None
+        sanitized_description = bleach.clean(form.uni_desc.data.strip(), tags=allowed_tags, attributes={})
+        sanitized_off_page_url = form.uni_official_page_link.data.strip() if form.uni_official_page_link.data else None
+        sanitized_location = bleach.clean(form.uni_location.data.strip(), tags=allowed_tags, attributes={})
+        sanitized_language_of_education = bleach.clean(form.language_of_education.data.strip(), tags=allowed_tags, attributes={}) if form.language_of_education.data else None
+        sanitized_prep_school = bleach.clean(form.prep_school.data.strip(), tags=allowed_tags, attributes={}) if form.prep_school.data else None
+        sanitized_study_programs_link = form.study_programs_link.data.strip() if form.study_programs_link.data else None
+        sanitized_application_deadline = bleach.clean(form.application_deadline.data.strip(), tags=allowed_tags, attributes={}) if form.application_deadline.data else None
+        sanitized_application_fee = bleach.clean(form.application_fee.data.strip(), tags=allowed_tags, attributes={}) if form.application_fee.data else None
+        sanitized_tuition_fee = bleach.clean(form.tuition_fee.data.strip(), tags=allowed_tags, attributes={})
+        sanitized_tuition_fee_link = form.tuition_fee_link.data.strip() if form.tuition_fee_link.data else None
+        sanitized_requirements = bleach.clean(form.requirements.data.strip(), tags=allowed_tags, attributes={}) if form.requirements.data else None
+        sanitized_scholarship_available = bleach.clean(form.scholarship_available.data.strip(), tags=allowed_tags, attributes={}) if form.scholarship_available.data else None
+        sanitized_country = form.country.data.strip()
 
-        # Create a new university object using the sanitized data
+        # Create a new university object using sanitized data
         new_uni = University(
             name=sanitized_uni_name,
             logo_url=sanitized_uni_logo,
@@ -284,14 +284,18 @@ def add_university():
             country=sanitized_country
         )
 
-        # Add the new university to the database and commit the transaction
-        db.session.add(new_uni)
-        db.session.commit()
-
-        # Redirect to a success page or the university list page
-        return redirect(url_for('university_list'))
+        try:
+            # Add the new university to the database and commit the transaction
+            db.session.add(new_uni)
+            db.session.commit()
+            return redirect(url_for('university_list'))
+        except Exception as e:
+            db.session.rollback()  # Rollback in case of any error
+            print(f"Database Error: {e}")
+            return render_template('universities.html', form=form, error=f"Error adding university: {e}")
 
     return render_template('universities.html', form=form)
+
 
 
 

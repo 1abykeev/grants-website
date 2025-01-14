@@ -48,3 +48,10 @@ class AddUniversityForm(FlaskForm):
     scholarship_available = TextAreaField("Scholarshi", validators=[Optional()], render_kw={"rows": 30, "cols": 80})
     #scholarship_available = StringField("Scholarship Available", validators=[Optional()])  # Changed to StringField
     country = SelectField("Country", choices=[('Poland', 'Poland'), ('Turkey', 'Turkey')], validators=[DataRequired()])
+
+
+
+
+
+
+# fsgsgf
